@@ -1,6 +1,6 @@
 node {
-    withEnv(['AZURE_SUBSCRIPTION_ID=99999999-9999-9999-9999-999999999999',
-            'AZURE_TENANT_ID=99999999-9999-9999-9999-999999999999']) {
+    withEnv(['AZURE_SUBSCRIPTION_ID=b2aec48f-6dad-4d57-ad25-dad521fe74a4',
+            'AZURE_TENANT_ID=0d7cc8e9-be54-45cc-b2e3-041a9b45aa57']) {
         stage('Init') {
             cleanWs()
             checkout scm
@@ -11,8 +11,8 @@ node {
         }
 
         stage('Publish') {
-            def RESOURCE_GROUP = '<resource_group>' 
-            def FUNC_NAME = '<function_app>'
+            def RESOURCE_GROUP = 'ODL-azure-1033085' 
+            def FUNC_NAME = 'my_odd_even_function_app'
             // login Azure
             withCredentials([usernamePassword(credentialsId: 'azuresp', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
             sh '''

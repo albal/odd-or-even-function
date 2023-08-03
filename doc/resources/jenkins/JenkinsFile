@@ -1,6 +1,7 @@
 node {
     withEnv(['AZURE_SUBSCRIPTION_ID=b2aec48f-6dad-4d57-ad25-dad521fe74a4',
             'AZURE_TENANT_ID=0d7cc8e9-be54-45cc-b2e3-041a9b45aa57']) {
+      ansiColor('xterm') {
         stage('Init') {
             cleanWs()
             checkout scm
@@ -24,5 +25,6 @@ node {
             sh "az functionapp deployment source config-zip -g $RESOURCE_GROUP -n $FUNC_NAME --src archive.zip"
             sh 'az logout'
         }
+      }
     }
 }

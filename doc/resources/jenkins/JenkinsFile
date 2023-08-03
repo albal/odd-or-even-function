@@ -12,7 +12,7 @@ node {
         }
 
         stage('Publish') {
-            def RESOURCE_GROUP = 'ODL-azure-1033085' 
+            def RESOURCE_GROUP = 'ODL-azure-1033113' 
             def FUNC_NAME = 'my_odd_even_function_app'
             // login Azure
             withCredentials([usernamePassword(credentialsId: 'azuresp', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
